@@ -1,0 +1,29 @@
+include(ExternalProject)
+find_package(Git REQUIRED)
+include(GNUInstallDirs)
+
+ExternalProject_Add(
+  VenachainCmdWasm
+  GIT_REPOSITORY https://github.com/Venachain/Venachain.git
+  CONFIGURE_COMMAND cd build && chmod 755 build_deps.sh env.sh clean_deps.sh
+  BUILD_COMMAND make all
+  BUILD_IN_SOURCE 1
+  INSTALL_COMMAND ""
+  UPDATE_COMMAND ""
+  PATCH_COMMAND ""
+  BUILD_ALWAYS 1
+  )
+
+ExternalProject_Add(
+  VenachainWASMTests
+  SOURCE_DIR "${CMAKE_SOURCE_DIR}/tests/unit"
+  BINARY_DIR "${CMAKE_BINARY_DIR}/tests/unit"
+  CMAKE_ARGS -DCMAKE_TOOLCHAIN_FILE=${CMAKE_BINARY_DIR}/lib/cmake/venachain.cdt/VenachainWasmToolchain.cmake -DCMAKE_BUILD_TYPE=Debug -DVENACHAIN_CDT_BIN=${CMAKE_BINARY_DIR}/lib/cmake/venachain.cdt/
+  UPDATE_COMMAND ""
+  PATCH_COMMAND ""
+  TEST_COMMAND ""
+  INSTALL_COMMAND ""
+  BUILD_ALWAYS 1
+  DEPENDS VenachainWasmLibs VenachainTools VenachainCmdWasm
+  )
+
