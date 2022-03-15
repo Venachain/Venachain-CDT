@@ -13,7 +13,7 @@
 ## 安装
 
 两种安装方式：
-* 方式一：使用已编译版本。将本工具对应操作系统的[release包](https://github.com/Venachain/Venachain-CDT/releases)解压到 ``${指定安装目录}`` 下。**Linux**与**Mac**操作系统用户的 ``${指定安装目录}`` 为 ``/usr/local/`` ，**Windows**用户的 ``${指定安装目录}`` 为 ``C:/`` 。
+* 方式一：使用已编译版本。将本工具对应操作系统的[release包](https://github.com/Venachain/Venachain-CDT/releases)解压到 ``${指定安装目录}`` 下。**Linux**与**MacOS**操作系统用户的 ``${指定安装目录}`` 为 ``/usr/local/`` ，**Windows**用户的 ``${指定安装目录}`` 为 ``C:/`` 。
 * 方式二：手动编译安装。按照下文编译步骤进行手动编译安装。
 
 > 由于方式二的编译时间可能较长，推荐使用方式一。
@@ -32,11 +32,10 @@
 - CMake 3.17+
 - gcc&g++ 7.4+ 或 Clang 7.0+
 
-#### Mac
+#### MacOS
 
 - Git
 - Python
-
 - CMake 3.17+
 - gcc&g++ 7.4+ 或 Clang 7.0+
 
@@ -45,7 +44,7 @@
 * Git
 * Python
 * CMake 3.5+
-* [MinGW-W64 GCC-8.1.0](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/sjlj/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0.7z) （注：安装路径不能含有空格(即: 不能安装在"Program Files"或"Program Files(x86)目录"), 否则可能导致编译失败.）
+* [MinGW-W64 GCC-8.1.0](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/sjlj/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0.7z) （注：安装路径不能含有空格，即不能安装在 ``Program Files`` 或 ``Program Files(x86)目录`` ，否则可能导致编译失败。）
 
 ### 编译流程
 
@@ -128,29 +127,29 @@ C++合约项目分为两种类型：
 
 ### 单文件项目
 
-- 初始化项目
+#### 初始化项目
 
 ``` sh
 venachain-init -project=${PROJECT_NAME} -bare
 
-## 例
+# 例
 venachain-init -project=example -bare
 ```
 
-- 编译WASM文件
+#### 编译WASM文件
 
 ``` sh
 cd ${PROJECT_NAME}
 venachain-cpp -o ${WASM_NAME}.wasm ${CPP_NAME}.cpp -abigen
 
-## 例
+# 例
 cd example
 venachain-cpp -o example.wasm example.cpp -abigen
 ```
 
 ### 多文件项目
 
-- 初始化项目
+#### 初始化项目
 
 ```shell
 venachain-init -project=${PROJECT_NAME}
@@ -159,7 +158,7 @@ venachain-init -project=${PROJECT_NAME}
 venachain-init -project=cmake_example 
 ```
 
-- 编译WASM文件
+#### 编译WASM文件
   
   * Linux
 
@@ -183,11 +182,6 @@ venachain-init -project=cmake_example
   cmake .. -G "MinGW Makefiles" -DVENACHAIN_CDT_ROOT="C:/venachain.cdt"
   mingw32-make
   ```
-  
-## 编译流程说明
-clang 7.0版本以后支持将c++代码直接编译为wasm字节码，大大简化了编译流程。
-![avatar](./img/toolchain.png)
-
 
 ## Q&A
 1. 遇到以下问题：
@@ -209,6 +203,10 @@ clang 7.0版本以后支持将c++代码直接编译为wasm字节码，大大简�
     - 如果没有，执行
 
       ```bash
+      ## Ubuntu
+      apt -y install lib32ncurses5
+      
+      ## CentOS
       yum -y install libncurses.so.5
       ```
 
@@ -235,11 +233,11 @@ clang 7.0版本以后支持将c++代码直接编译为wasm字节码，大大简�
     )
     ```
 
-4. 编译项目时，出现```boost_1_69_0.tar.bz2```下载慢或者下载失败的情况。
+4. 编译项目时，出现 ``boost_1_69_0.tar.bz2`` 下载慢或者下载失败的情况。
 
-    **解决方法**：先停止当前```make```流程，然后手动在[官网](https://boostorg.jfrog.io/artifactory/main/release/1.69.0/source/)下载```boost_1_69_0.tar.bz2```，放到项目```build/thirdparty/Download/boost/```目录下，然后继续执行```make```。
+    **解决方法**：先停止当前 ``make`` 流程，然后手动在[官网](https://boostorg.jfrog.io/artifactory/main/release/1.69.0/source/)下载 ``boost_1_69_0.tar.bz2`` ，放到项目 ``build/thirdparty/Download/boost/`` 目录下，然后继续执行 ``make`` 。
 
-5. 编译项目时，出现 `file cannot create directory` 或 `cannot copy file` 报错的情况，如：
+5. 编译项目时，出现 ``file cannot create directory`` 或 ``cannot copy file`` 报错的情况，如：
 
     ```console
     Install the project...
