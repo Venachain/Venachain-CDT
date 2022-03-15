@@ -13,7 +13,7 @@
 ## 安装
 
 两种安装方式：
-* 方式一：使用已编译版本。将本工具对应操作系统的[release包](https://git-c.i.wxblockchain.com/vena/src/Venachain-CDT/-/releases)解压到 ``${指定安装目录}`` 下。**Linux**与**Mac**操作系统用户的 ``${指定安装目录}`` 为 ``/usr/local/`` ，**Windows**用户的 ``${指定安装目录}`` 为 ``C:/`` 。
+* 方式一：使用已编译版本。将本工具对应操作系统的[release包](https://github.com/Venachain/Venachain-CDT/releases)解压到 ``${指定安装目录}`` 下。**Linux**与**Mac**操作系统用户的 ``${指定安装目录}`` 为 ``/usr/local/`` ，**Windows**用户的 ``${指定安装目录}`` 为 ``C:/`` 。
 * 方式二：手动编译安装。按照下文编译步骤进行手动编译安装。
 
 > 由于方式二的编译时间可能较长，推荐使用方式一。
@@ -68,7 +68,7 @@ sudo yum install gcc g++ make ncurses-devel zlib-devel
 ##### 获取源码
 
 ```shell
-git clone https://git-c.i.wxblockchain.com/vena/src/Venachain-CDT.git
+git clone https://github.com/Venachain/Venachain-CDT.git
 ```
 
 ##### 执行编译
@@ -85,7 +85,7 @@ make && make install
 ##### 获取源码
 
 ```shell
-git clone https://git-c.i.wxblockchain.com/vena/src/Venachain-CDT.git
+git clone https://github.com/Venachain/Venachain-CDT.git
 ```
 
 ##### 执行编译
@@ -102,7 +102,7 @@ make && make install
 ##### 获取源码
 
 ```shell
-git clone https://git-c.i.wxblockchain.com/vena/src/Venachain-CDT.git
+git clone https://github.com/Venachain/Venachain-CDT.git
 ```
 
 ##### 执行编译
